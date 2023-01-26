@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^3.0.1
+  animated_splash_screen: ^1.3.0
+  page_transition: ^2.0.9
+  equatable: ^2.0.5
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -30,7 +33,7 @@ flutter:
     - assets/images/navbar-icons/
 
   fonts:
-    - family: Montserrat
+    - family: Futura
       fonts:
         - asset: assets/fonts/Futura-Regular.ttf
         - asset: assets/fonts/Futura-Italic.ttf
