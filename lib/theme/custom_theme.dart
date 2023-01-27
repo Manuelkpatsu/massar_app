@@ -27,7 +27,7 @@ class CustomTheme {
             height: 1.0,
           ),
           elevation: 0,
-          foregroundColor: Colors.black,
+          foregroundColor: Colors.white,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(50)),
           ),

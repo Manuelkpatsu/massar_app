@@ -32,4 +32,6 @@ class CustomColor {
   static const Color descriptionColor = Color(0xff516971);
   static const Color shadowColor = Color(0xff98adb7);
   static const Color violetColor = Color(0xffad6dff);
+  static const Color textFieldBorderColor = Color(0xffcccccc);
+  static const Color rememberMeColor = Color(0xff899b9a);
 }
