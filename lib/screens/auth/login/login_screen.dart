@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/screens/auth/register/register_screen.dart';
 import 'package:massar_app/screens/widgets/custom_button.dart';
 import 'package:massar_app/screens/widgets/password_input_field.dart';
 import 'package:massar_app/screens/widgets/text_input_field.dart';
@@ -81,8 +82,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             labelText: 'Password',
                             inputAction: TextInputAction.done,
                             obscureText: _obscureLoginPasswordText,
-                              toggle: () => setState(
-                                      () => _obscureLoginPasswordText = !_obscureLoginPasswordText)
+                            toggle: () => setState(() =>
+                                _obscureLoginPasswordText = !_obscureLoginPasswordText),
                           ),
                           const SizedBox(height: 40),
                           Row(
@@ -105,7 +106,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             widget: const Text('Sign In'),
                           ),
                           const SizedBox(height: 30),
-                          CreateNewAccount(onTap: () {}),
+                          CreateNewAccount(
+                            onTap: () =>
+                                Navigator.of(context).pushNamed(RegisterScreen.routeName),
+                          ),
                           const SizedBox(height: 20),
                         ],
                       ),
