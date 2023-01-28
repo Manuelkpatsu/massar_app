@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/screens/auth/login/login_screen.dart';
+import 'package:massar_app/screens/main_app/main_app.dart';
 import 'package:massar_app/screens/widgets/custom_button.dart';
 import 'package:massar_app/screens/widgets/password_input_field.dart';
 import 'package:massar_app/screens/widgets/text_input_field.dart';
@@ -106,7 +107,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                           const SizedBox(height: 40),
                           CustomButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                MainApp.routeName,
+                                (route) => false,
+                              );
+                            },
                             widget: const Text('Sign Up'),
                           ),
                           const SizedBox(height: 30),
