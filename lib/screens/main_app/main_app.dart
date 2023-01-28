@@ -19,46 +19,42 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   late PersistentTabController _controller;
   List<Widget> _buildScreens() => [
-    const HomeScreen(),
-    const FeedsScreen(),
-    const TransactionScreen(),
-    const ProfileScreen(),
-  ];
+        const HomeScreen(),
+        const FeedsScreen(),
+        const TransactionScreen(),
+        const ProfileScreen(),
+      ];
 
   List<PersistentBottomNavBarItem> _navBarsItems() => [
-    PersistentBottomNavBarItem(
-      iconSize: 24,
-      icon: const Icon(Icons.home),
-      inactiveIcon: const Icon(Icons.home_outlined),
-      title: "Home",
-      activeColorPrimary: CustomColor.menuItemColor,
-      inactiveColorPrimary: CustomColor.labelColor,
-    ),
-    PersistentBottomNavBarItem(
-      iconSize: 24,
-      icon: const Icon(Icons.feed_rounded),
-      inactiveIcon: const Icon(Icons.feed_outlined),
-      title: 'Feeds',
-      activeColorPrimary: CustomColor.menuItemColor,
-      inactiveColorPrimary: CustomColor.labelColor,
-    ),
-    PersistentBottomNavBarItem(
-      iconSize: 24,
-      icon: const Icon(Icons.turned_in_rounded),
-      inactiveIcon: const Icon(Icons.turned_in_not_rounded),
-      title: 'Transaction',
-      activeColorPrimary: CustomColor.menuItemColor,
-      inactiveColorPrimary: CustomColor.labelColor,
-    ),
-    PersistentBottomNavBarItem(
-      iconSize: 24,
-      icon: const Icon(Icons.account_circle_rounded),
-      inactiveIcon: const Icon(Icons.account_circle_outlined),
-      title: 'My Profile',
-      activeColorPrimary: CustomColor.menuItemColor,
-      inactiveColorPrimary: CustomColor.labelColor,
-    ),
-  ];
+        PersistentBottomNavBarItem(
+          icon: Image.asset('assets/images/navbar-icons/home-active.png'),
+          inactiveIcon: Image.asset('assets/images/navbar-icons/home.png'),
+          title: "Home",
+          activeColorPrimary: CustomColor.menuItemColor,
+          inactiveColorPrimary: CustomColor.labelColor,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Image.asset('assets/images/navbar-icons/feeds-active.png'),
+          inactiveIcon: Image.asset('assets/images/navbar-icons/feeds.png'),
+          title: 'Feeds',
+          activeColorPrimary: CustomColor.menuItemColor,
+          inactiveColorPrimary: CustomColor.labelColor,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Image.asset('assets/images/navbar-icons/transaction-active.png'),
+          inactiveIcon: Image.asset('assets/images/navbar-icons/transaction.png'),
+          title: 'Transaction',
+          activeColorPrimary: CustomColor.menuItemColor,
+          inactiveColorPrimary: CustomColor.labelColor,
+        ),
+        PersistentBottomNavBarItem(
+          icon: Image.asset('assets/images/navbar-icons/profile-active.png'),
+          inactiveIcon: Image.asset('assets/images/navbar-icons/profile.png'),
+          title: 'My Profile',
+          activeColorPrimary: CustomColor.menuItemColor,
+          inactiveColorPrimary: CustomColor.labelColor,
+        ),
+      ];
 
   @override
   void initState() {
@@ -78,6 +74,7 @@ class _MainAppState extends State<MainApp> {
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,
+      navBarHeight: 70,
       hideNavigationBarWhenKeyboardShows: true,
       popAllScreensOnTapOfSelectedTab: true,
       popActionScreens: PopActionScreensType.all,
