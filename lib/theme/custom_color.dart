@@ -34,4 +34,6 @@ class CustomColor {
   static const Color violetColor = Color(0xffad6dff);
   static const Color textFieldBorderColor = Color(0xffcccccc);
   static const Color rememberMeColor = Color(0xff899b9a);
+  static const Color hintTextColor = Color(0xff5f6e7c);
+  static const Color iconColor = Color(0xff202020);
 }
