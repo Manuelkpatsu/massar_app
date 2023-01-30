@@ -4,6 +4,7 @@ class CustomColor {
   static const Color primaryColor = Color(0xff06ab8d);
   static const Color greenColor = Color(0xff01a688);
   static const Color greenBorderColor = Color(0xff02a88a);
+  static const Color successColor = Color(0xff1cb069);
   static const Color lightGreenColor = Color(0xfff5fbfc);
   static const Color scaffoldBackgroundColor = Color(0xffe9f1f5);
   static const Color buttonColor = Color(0xffffb039);
@@ -36,4 +37,5 @@ class CustomColor {
   static const Color rememberMeColor = Color(0xff899b9a);
   static const Color hintTextColor = Color(0xff5f6e7c);
   static const Color iconColor = Color(0xff202020);
+  static const Color productColor = Color(0xfffffdfd);
 }
