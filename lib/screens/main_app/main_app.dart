@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/screens/main_app/widgets/info_tile.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
+import 'package:massar_app/screens/widgets/logo.dart';
 import 'package:massar_app/theme/custom_color.dart';
+import 'package:massar_app/utils/money.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'feeds/feeds_screen.dart';
 import 'home/home_screen.dart';
 import 'profile/profile_screen.dart';
 import 'transaction/transaction_screen.dart';
+import 'widgets/close_drawer_button.dart';
+import 'widgets/nav_tile.dart';
 import 'widgets/screen_title.dart';
 
 class MainApp extends StatefulWidget {
@@ -99,8 +104,111 @@ class _MainAppState extends State<MainApp> {
           ),
         ],
       ),
-      drawer: const Drawer(
+      drawer: Drawer(
         backgroundColor: Colors.white,
+        child: Column(
+          children: [
+            DrawerHeader(
+              margin: EdgeInsets.zero,
+              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+              child: Stack(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Logo(
+                        firstColor: CustomColor.primaryColor,
+                        secondColor: CustomColor.buttonColor,
+                        fontSize: 27,
+                      ),
+                      const SizedBox(height: 40),
+                      IntrinsicHeight(
+                        child: Row(
+                          children: [
+                            InfoTile(
+                              title: 'Balance',
+                              info: Money.fromDouble(value: 809.97),
+                              infoTextColor: CustomColor.primaryColor,
+                            ),
+                            const SizedBox(width: 10),
+                            const VerticalDivider(
+                              color: CustomColor.labelColor,
+                              thickness: 0.5,
+                            ),
+                            const SizedBox(width: 10),
+                            const InfoTile(
+                              title: 'My Reward Points',
+                              info: '800 Points',
+                              infoTextColor: CustomColor.buttonColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const CloseDrawerButton(),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Dashboard',
+                    icon: Icons.home_filled,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Become Seller',
+                    icon: Icons.person_outline_rounded,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Help',
+                    icon: Icons.help_outline_rounded,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Categories',
+                    icon: Icons.grid_view_outlined,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'All Products',
+                    icon: Icons.shopping_bag_outlined,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'New Release',
+                    icon: Icons.calendar_today_outlined,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Promotion',
+                    icon: Icons.campaign_outlined,
+                  ),
+                  NavTile(
+                    onPressed: () {},
+                    title: 'Settings',
+                    icon: Icons.settings_outlined,
+                  ),
+                ],
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: NavTile(
+                onPressed: () {},
+                title: 'Logout',
+                icon: Icons.logout,
+              ),
+            ),
+            const SizedBox(height: 40),
+          ],
+        ),
       ),
       body: PersistentTabView(
         context,

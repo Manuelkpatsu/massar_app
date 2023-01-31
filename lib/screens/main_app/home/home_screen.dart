@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Category(id: 1, name: 'Electronic', image: 'assets/images/categories/electronic.png'),
     Category(id: 2, name: 'Fashion', image: 'assets/images/categories/fashion.png'),
     Category(id: 3, name: 'F&B', image: 'assets/images/categories/cloth.png'),
-    Category(id: 4, name: 'Beauty', image: 'assets/images/categories/deal.png'),
+    Category(id: 4, name: 'Beauty', image: 'assets/images/categories/beauty.png'),
     Category(id: 5, name: 'Deals', image: 'assets/images/categories/deal.png'),
   ];
   final List<String> _promotions = [
