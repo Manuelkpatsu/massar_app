@@ -8,7 +8,7 @@ import 'widgets/address_picker.dart';
 import 'widgets/banner_tile.dart';
 import 'widgets/category_tile.dart';
 import 'widgets/new_products_title.dart';
-import 'widgets/search_text_field.dart';
+import '../widgets/search_text_field.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';

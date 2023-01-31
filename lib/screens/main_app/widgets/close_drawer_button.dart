@@ -11,7 +11,7 @@ class CloseDrawerButton extends StatelessWidget {
       right: -5,
       child: IconButton(
         splashRadius: 20,
-        onPressed: () => Navigator.pop(context),
+        onPressed: () => Navigator.of(context).pop(),
         icon: const Icon(
           Icons.close,
           color: CustomColor.labelColor,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/screens/main_app/products/products_screen.dart';
 import 'package:massar_app/theme/custom_color.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 class NewProductsTitle extends StatelessWidget {
   const NewProductsTitle({Key? key}) : super(key: key);
@@ -22,7 +24,14 @@ class NewProductsTitle extends StatelessWidget {
               ),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                PersistentNavBarNavigator.pushNewScreen(
+                  context,
+                  screen: const ProductsScreen(),
+                  withNavBar: false,
+                  pageTransitionAnimation: PageTransitionAnimation.cupertino,
+                );
+              },
               style: TextButton.styleFrom(
                 textStyle: const TextStyle(
                   fontWeight: FontWeight.w400,

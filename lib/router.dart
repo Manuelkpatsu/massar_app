@@ -5,6 +5,7 @@ import 'screens/auth/register/register_screen.dart';
 import 'screens/main_app/feeds/feeds_screen.dart';
 import 'screens/main_app/home/home_screen.dart';
 import 'screens/main_app/main_app.dart';
+import 'screens/main_app/products/products_screen.dart';
 import 'screens/main_app/profile/profile_screen.dart';
 import 'screens/main_app/transaction/transaction_screen.dart';
 
@@ -25,6 +26,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const TransactionScreen());
       case ProfileScreen.routeName:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+      case ProductsScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const ProductsScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

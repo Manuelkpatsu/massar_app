@@ -108,7 +108,7 @@ class ProductTile extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        Money.fromDouble(value: product.currentPrice),
+                        Money.fromDouble(value: product.previousPrice!),
                         style: const TextStyle(
                           color: CustomColor.strikeThroughColor,
                           fontSize: 10,

@@ -28,6 +28,7 @@ class CustomColor {
   static const Color productColorSeven = Color(0xffcfeefa);
   static const Color productColorEight = Color(0xffd2e7db);
   static const Color productColorNine = Color(0xffe7ddff);
+  static const Color productColorTen = Color(0xfff9ddce);
   static const Color selectedColorBackground = Color(0xffebf3f7);
   static const Color selectedColorBorder = Color(0xffacc5ce);
   static const Color descriptionColor = Color(0xff516971);
