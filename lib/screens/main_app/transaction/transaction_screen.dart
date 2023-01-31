@@ -7,15 +7,13 @@ class TransactionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'Transaction Screen',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+    return const Center(
+      child: Text(
+        'Transaction Screen',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );

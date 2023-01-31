@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/category.dart';
 import 'package:massar_app/models/product.dart';
-import 'package:massar_app/screens/widgets/custom_badge.dart';
 import 'package:massar_app/screens/widgets/product_tile.dart';
 import 'package:massar_app/theme/custom_color.dart';
 
 import 'widgets/address_picker.dart';
 import 'widgets/banner_tile.dart';
 import 'widgets/category_tile.dart';
-import 'widgets/home_text.dart';
 import 'widgets/new_products_title.dart';
 import 'widgets/search_text_field.dart';
 
@@ -140,57 +138,28 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CustomColor.scaffoldBackgroundColor,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
             foregroundColor: Colors.white,
             iconTheme: const IconThemeData(color: Colors.white),
-            leading: IconButton(
-              splashRadius: 20,
-              onPressed: () {},
-              icon: const Icon(Icons.sort_outlined),
-            ),
-            title: const HomeText(),
-            centerTitle: false,
-            actions: [
-              CustomBadge(
-                icon: Icons.markunread_outlined,
-                text: '0',
-                onTap: () {},
-              ),
-              CustomBadge(
-                icon: Icons.notifications_none_rounded,
-                text: '0',
-                onTap: () {},
-              ),
-              CustomBadge(
-                icon: Icons.shopping_cart_outlined,
-                text: '0',
-                onTap: () {},
-              ),
-            ],
             backgroundColor: CustomColor.primaryColor,
-            pinned: true,
+            pinned: false,
             snap: false,
             floating: false,
-            expandedHeight: 124 + kToolbarHeight,
-            flexibleSpace: FlexibleSpaceBar(
-              expandedTitleScale: 1.0,
-              background: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 110),
-                    AddressPicker(
-                      onTap: () {},
-                      address: 'St 394 Jackson, New york  United Status',
-                    ),
-                    const SizedBox(height: 20),
-                    SearchTextField(controller: _searchController),
-                  ],
+            toolbarHeight: 115,
+            title: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AddressPicker(
+                  onTap: () {},
+                  address: 'St 394 Jackson, New york  United Status',
                 ),
-              ),
+                const SizedBox(height: 20),
+                SearchTextField(controller: _searchController),
+                const SizedBox(height: 10),
+              ],
             ),
           ),
           SliverToBoxAdapter(
@@ -234,26 +203,26 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const NewProductsTitle(),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            sliver: SliverGrid(
+          SliverToBoxAdapter(
+            child: GridView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              itemCount: _products.length,
+              itemBuilder: (context, int index) {
+                final Product product = _products[index];
+
+                return ProductTile(
+                  onTap: () {},
+                  product: product,
+                );
+              },
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 13,
                 crossAxisSpacing: 13,
                 mainAxisExtent: 190,
               ),
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final Product product = _products[index];
-
-                  return ProductTile(
-                    onTap: () {},
-                    product: product,
-                  );
-                },
-                childCount: _products.length,
-              ),
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 100)),

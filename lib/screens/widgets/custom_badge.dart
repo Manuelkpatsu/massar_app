@@ -19,7 +19,7 @@ class CustomBadge extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: Badge(
-        onTap: () {},
+        onTap: onTap,
         badgeContent: Text(
           text,
           style: const TextStyle(

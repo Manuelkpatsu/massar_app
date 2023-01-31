@@ -7,15 +7,13 @@ class FeedsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text(
-          'Feeds Screen',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+    return const Center(
+      child: Text(
+        'Feeds Screen',
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
