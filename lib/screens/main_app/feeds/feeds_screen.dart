@@ -107,7 +107,6 @@ class FeedsScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: CustomColor.scaffoldBackgroundColor,
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         itemCount: feeds.length,
