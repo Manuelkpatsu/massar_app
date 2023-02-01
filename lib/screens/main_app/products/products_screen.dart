@@ -269,6 +269,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             pinned: true,
             snap: false,
             floating: false,
+            titleSpacing: 0,
             expandedHeight: 90 + kToolbarHeight,
             title: const ScreenTitleText(title: 'All Products'),
             centerTitle: false,
