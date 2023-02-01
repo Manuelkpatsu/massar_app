@@ -27,7 +27,7 @@ class Product extends Equatable {
   final double rating;
   final Store store;
   final String description;
-  final List<String>? specifications;
+  final List<String> specifications;
   final List<String>? colors;
   final Color backgroundColor;
 
@@ -40,7 +40,7 @@ class Product extends Equatable {
     required this.rating,
     required this.store,
     required this.description,
-    this.specifications,
+    required this.specifications,
     this.colors,
     required this.backgroundColor,
   });

@@ -39,4 +39,5 @@ class CustomColor {
   static const Color hintTextColor = Color(0xff5f6e7c);
   static const Color iconColor = Color(0xff202020);
   static const Color productColor = Color(0xfffffdfd);
+  static const Color periodColor = Color(0xff909da1);
 }
