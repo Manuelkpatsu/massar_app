@@ -8,6 +8,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'feeds/feeds_screen.dart';
 import 'home/home_screen.dart';
+import 'notifications/notifications_screen.dart';
 import 'products/products_screen.dart';
 import 'profile/profile_screen.dart';
 import 'promotion/promotion_screen.dart';
@@ -102,7 +103,7 @@ class _MainAppState extends State<MainApp> {
           CustomBadge(
             icon: Icons.notifications_none_rounded,
             text: '0',
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(NotificationsScreen.routeName),
           ),
           CustomBadge(
             icon: Icons.shopping_cart_outlined,

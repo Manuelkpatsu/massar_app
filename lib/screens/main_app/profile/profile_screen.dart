@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/profile_item.dart';
+import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/profile/widgets/profile_nav_tile.dart';
 import 'package:massar_app/screens/main_app/promotion/promotion_screen.dart';
 import 'package:massar_app/screens/widgets/profile_photo.dart';
@@ -29,7 +30,14 @@ class ProfileScreen extends StatelessWidget {
         image: 'assets/images/profile-bell.png',
         title: 'Notifications',
         subTitle: 'Consectetur adipiscing elit sedorea',
-        onTap: () {},
+        onTap: () {
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: const NotificationsScreen(),
+            withNavBar: false,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
+        },
       ),
       ProfileItem(
         image: 'assets/images/profile-promotion.png',

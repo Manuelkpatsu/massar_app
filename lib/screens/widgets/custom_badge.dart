@@ -16,10 +16,10 @@ class CustomBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 10),
-      child: Badge(
-        onTap: onTap,
+    return IconButton(
+      splashRadius: 20,
+      onPressed: onTap,
+      icon: Badge(
         badgeContent: Text(
           text,
           style: const TextStyle(

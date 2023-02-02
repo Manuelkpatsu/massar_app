@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/widgets/banner_tile.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
@@ -30,7 +31,7 @@ class PromotionScreen extends StatelessWidget {
           CustomBadge(
             icon: Icons.notifications_none_rounded,
             text: '0',
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(NotificationsScreen.routeName),
           ),
         ],
       ),
