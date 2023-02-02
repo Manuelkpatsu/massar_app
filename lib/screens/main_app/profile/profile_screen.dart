@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/profile_item.dart';
+import 'package:massar_app/screens/main_app/edit_profile/edit_profile_screen.dart';
 import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/profile/widgets/profile_nav_tile.dart';
 import 'package:massar_app/screens/main_app/promotion/promotion_screen.dart';
@@ -24,7 +25,14 @@ class ProfileScreen extends StatelessWidget {
         image: 'assets/images/profile-user.png',
         title: 'User Profile',
         subTitle: 'Consectetur adipiscing elit sedorea',
-        onTap: () {},
+        onTap: () {
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: const EditProfileScreen(),
+            withNavBar: false,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
+        },
       ),
       ProfileItem(
         image: 'assets/images/profile-bell.png',
@@ -85,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     const ProfilePhoto(
                       photo: 'assets/images/profile-photo.png',
-                      radius: 25,
+                      size: 50,
                     ),
                     const SizedBox(width: 10),
                     Expanded(

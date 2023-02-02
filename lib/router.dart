@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
+import 'screens/main_app/edit_profile/edit_profile_screen.dart';
 import 'screens/main_app/feeds/feeds_screen.dart';
 import 'screens/main_app/home/home_screen.dart';
 import 'screens/main_app/main_app.dart';
@@ -34,6 +35,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const PromotionScreen());
       case NotificationsScreen.routeName:
         return MaterialPageRoute(builder: (_) => const NotificationsScreen());
+      case EditProfileScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

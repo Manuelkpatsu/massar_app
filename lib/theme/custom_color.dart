@@ -40,4 +40,5 @@ class CustomColor {
   static const Color iconColor = Color(0xff202020);
   static const Color productColor = Color(0xfffffdfd);
   static const Color periodColor = Color(0xff909da1);
+  static const Color radioColor = Color(0xffcdd8e2);
 }

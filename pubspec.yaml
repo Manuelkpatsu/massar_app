@@ -17,6 +17,7 @@ dependencies:
   badges: ^3.0.2
   intl: ^0.17.0
   timeago: ^3.3.0
+  country_picker: ^2.0.19
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
