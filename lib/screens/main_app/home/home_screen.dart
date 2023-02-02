@@ -5,7 +5,7 @@ import 'package:massar_app/screens/widgets/product_tile.dart';
 import 'package:massar_app/theme/custom_color.dart';
 
 import 'widgets/address_picker.dart';
-import 'widgets/banner_tile.dart';
+import '../../widgets/banner_tile.dart';
 import 'widgets/category_tile.dart';
 import 'widgets/new_products_title.dart';
 import '../widgets/search_text_field.dart';
@@ -196,6 +196,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: EdgeInsets.only(
                       right: index == _promotions.length - 1 ? 0 : 13,
                     ),
+                    height: 120,
+                    width: 250,
+                    fit: BoxFit.fill,
                   );
                 },
               ),

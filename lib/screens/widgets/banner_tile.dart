@@ -4,12 +4,18 @@ class BannerTile extends StatelessWidget {
   final String banner;
   final VoidCallback onTap;
   final EdgeInsetsGeometry padding;
+  final double width;
+  final double height;
+  final BoxFit fit;
 
   const BannerTile({
     Key? key,
     required this.banner,
     required this.onTap,
     required this.padding,
+    required this.height,
+    required this.width,
+    this.fit = BoxFit.cover,
   }) : super(key: key);
 
   @override
@@ -19,11 +25,16 @@ class BannerTile extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         onTap: onTap,
-        child: Ink.image(
-          image: AssetImage(banner),
-          height: 120,
-          width: 250,
-          fit: BoxFit.fill,
+        child: Ink(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            image: DecorationImage(
+              image: AssetImage(banner),
+              fit: fit,
+            ),
+          ),
+          height: height,
+          width: width,
         ),
       ),
     );

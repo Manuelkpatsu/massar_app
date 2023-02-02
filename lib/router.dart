@@ -7,6 +7,7 @@ import 'screens/main_app/home/home_screen.dart';
 import 'screens/main_app/main_app.dart';
 import 'screens/main_app/products/products_screen.dart';
 import 'screens/main_app/profile/profile_screen.dart';
+import 'screens/main_app/promotion/promotion_screen.dart';
 import 'screens/main_app/transaction/transaction_screen.dart';
 
 class AppRouter {
@@ -28,6 +29,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
       case ProductsScreen.routeName:
         return MaterialPageRoute(builder: (_) => const ProductsScreen());
+      case PromotionScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const PromotionScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

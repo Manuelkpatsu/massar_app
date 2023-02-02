@@ -13,7 +13,7 @@ class ProfileNavTile extends StatelessWidget {
       padding: const EdgeInsets.only(left: 24, right: 24, bottom: 10),
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        onTap: () {},
+        onTap: profileItem.onTap,
         child: Ink(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),

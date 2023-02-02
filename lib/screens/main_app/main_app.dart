@@ -8,7 +8,9 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'feeds/feeds_screen.dart';
 import 'home/home_screen.dart';
+import 'products/products_screen.dart';
 import 'profile/profile_screen.dart';
+import 'promotion/promotion_screen.dart';
 import 'transaction/transaction_screen.dart';
 import 'widgets/close_drawer_button.dart';
 import 'widgets/nav_tile.dart';
@@ -69,6 +71,11 @@ class _MainAppState extends State<MainApp> {
   void initState() {
     super.initState();
     _controller = PersistentTabController(initialIndex: _initialIndex);
+  }
+
+  void navigateTo(String route) {
+    Navigator.of(context).pop();
+    Navigator.of(context).pushNamed(route);
   }
 
   @override
@@ -176,7 +183,9 @@ class _MainAppState extends State<MainApp> {
                     icon: Icons.grid_view_outlined,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateTo(ProductsScreen.routeName);
+                    },
                     title: 'All Products',
                     icon: Icons.shopping_bag_outlined,
                   ),
@@ -186,7 +195,9 @@ class _MainAppState extends State<MainApp> {
                     icon: Icons.calendar_today_outlined,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () {
+                      navigateTo(PromotionScreen.routeName);
+                    },
                     title: 'Promotion',
                     icon: Icons.campaign_outlined,
                   ),

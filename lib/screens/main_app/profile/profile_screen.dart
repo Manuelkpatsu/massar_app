@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/profile_item.dart';
 import 'package:massar_app/screens/main_app/profile/widgets/profile_nav_tile.dart';
+import 'package:massar_app/screens/main_app/promotion/promotion_screen.dart';
 import 'package:massar_app/screens/widgets/profile_photo.dart';
 import 'package:massar_app/theme/custom_color.dart';
 import 'package:massar_app/utils/money.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'widgets/phone_number_text.dart';
 import 'widgets/profile_info_tile.dart';
@@ -33,7 +35,14 @@ class ProfileScreen extends StatelessWidget {
         image: 'assets/images/profile-promotion.png',
         title: 'Promotion',
         subTitle: 'Consectetur adipiscing elit sedorea',
-        onTap: () {},
+        onTap: () {
+          PersistentNavBarNavigator.pushNewScreen(
+            context,
+            screen: const PromotionScreen(),
+            withNavBar: false,
+            pageTransitionAnimation: PageTransitionAnimation.cupertino,
+          );
+        },
       ),
       ProfileItem(
         image: 'assets/images/profile-about.png',
