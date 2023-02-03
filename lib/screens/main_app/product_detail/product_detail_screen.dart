@@ -148,54 +148,55 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
           ),
         ),
         bottomSheet: IntrinsicHeight(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Divider(color: CustomColor.dividerColor, height: 0),
-              Ink(
-                color: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Ink(
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              border: Border(
+                top: BorderSide(color: CustomColor.dividerColor, width: 0.5),
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        RoundedIconButton(
-                          icon: Icons.add,
-                          onTap: () {},
-                          inkWellShapeBorder: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          shapeBorder: RoundedRectangleBorder(
-                            side: const BorderSide(color: CustomColor.greyColor, width: 0.5),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        const SizedBox(width: 13),
-                        const ProductQuantityText(quantity: 1),
-                        const SizedBox(width: 13),
-                        RoundedIconButton(
-                          icon: Icons.remove,
-                          onTap: () {},
-                          inkWellShapeBorder: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          shapeBorder: RoundedRectangleBorder(
-                            side: const BorderSide(color: CustomColor.greyColor, width: 0.5),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                      ],
+                    RoundedIconButton(
+                      icon: Icons.add,
+                      onTap: () {},
+                      inkWellShapeBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      shapeBorder: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            color: CustomColor.greyColor, width: 0.5),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                    CustomButton(
-                      width: 180,
-                      onPressed: () {},
-                      widget: const Text('Add to cart'),
+                    const SizedBox(width: 13),
+                    const ProductQuantityText(quantity: 1),
+                    const SizedBox(width: 13),
+                    RoundedIconButton(
+                      icon: Icons.remove,
+                      onTap: () {},
+                      inkWellShapeBorder: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      shapeBorder: RoundedRectangleBorder(
+                        side: const BorderSide(
+                            color: CustomColor.greyColor, width: 0.5),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
+                CustomButton(
+                  width: 180,
+                  onPressed: () {},
+                  widget: const Text('Add to cart'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
