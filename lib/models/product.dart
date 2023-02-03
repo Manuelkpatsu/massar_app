@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart' show Color;
 
+import 'review.dart';
+
 enum Store {
   appleStore(id: 'Apple Store', image: 'assets/images/stores/apple-store.png'),
   amazonStore(id: 'Amazon Store', image: 'assets/images/stores/amazon-store.png'),
@@ -28,8 +30,9 @@ class Product extends Equatable {
   final Store store;
   final String description;
   final List<String> specifications;
-  final List<String>? colors;
+  final List<String> colors;
   final Color backgroundColor;
+  final List<Review> reviews;
 
   const Product({
     required this.id,
@@ -41,8 +44,9 @@ class Product extends Equatable {
     required this.store,
     required this.description,
     required this.specifications,
-    this.colors,
+    required this.colors,
     required this.backgroundColor,
+    required this.reviews,
   });
 
   @override
@@ -57,5 +61,6 @@ class Product extends Equatable {
         description,
         colors,
         backgroundColor,
+        reviews,
       ];
 }

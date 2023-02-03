@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/product.dart';
+import 'package:massar_app/models/review.dart';
+import 'package:massar_app/screens/main_app/product_detail/product_detail_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/main_app/widgets/search_text_field.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
@@ -17,7 +19,7 @@ class ProductsScreen extends StatefulWidget {
 
 class _ProductsScreenState extends State<ProductsScreen> {
   final TextEditingController _searchController = TextEditingController();
-  final List<Product> _products = const [
+  final List<Product> _products = [
     Product(
       id: 1,
       image: 'assets/images/products/smart-watch.png',
@@ -27,19 +29,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.appleStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorTen,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 2,
@@ -50,19 +81,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.2,
       store: Store.nikeStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorFive,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 3,
@@ -73,19 +133,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.uniqloStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorSix,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 4,
@@ -96,19 +185,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.appleStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorSeven,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 5,
@@ -119,19 +237,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.uniqloStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorEight,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 6,
@@ -142,19 +289,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.appleStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorOne,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 7,
@@ -165,19 +341,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.2,
       store: Store.samsungStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorTwo,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 8,
@@ -188,19 +393,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.uniqloStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorThree,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 9,
@@ -211,19 +445,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.gucciStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorFour,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
     Product(
       id: 10,
@@ -234,19 +497,48 @@ class _ProductsScreenState extends State<ProductsScreen> {
       rating: 4.5,
       store: Store.appleStore,
       description: 'IMAC SILVER 21,5 INCH MID 2010/2011 RAM 8GB HDD 500GB SECOND',
-      specifications: [
+      specifications: const [
         'Processor Core i3',
         'IMAC (Mid 2010)',
         'Memory 4GB 1333 MHz DDR3 (bisa upgrade)',
         'Built In Display 21,5 Inch (1920 X 1080 )',
       ],
-      colors: [
+      colors: const [
         'Green',
         'Black',
         'Silver',
         'Blue',
       ],
       backgroundColor: CustomColor.productColorNine,
+      reviews: [
+        Review(
+          id: 1,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.5,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 2,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 4.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+        Review(
+          id: 3,
+          profilePhoto: 'assets/images/reviewer.png',
+          profileName: 'Arnold Cuan',
+          rating: 5.0,
+          message:
+              'wow this is the product i like the most, and a trusted and friendly shop',
+          createdAt: DateTime(2023, 1, 31, 12, 30, 20),
+        ),
+      ],
     ),
   ];
 
@@ -307,7 +599,12 @@ class _ProductsScreenState extends State<ProductsScreen> {
                 final Product product = _products[index];
 
                 return ProductTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushNamed(
+                      ProductDetailScreen.routeName,
+                      arguments: product,
+                    );
+                  },
                   product: product,
                 );
               },

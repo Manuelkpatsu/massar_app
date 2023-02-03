@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'models/product.dart';
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
 import 'screens/main_app/edit_profile/edit_profile_screen.dart';
@@ -7,6 +8,7 @@ import 'screens/main_app/feeds/feeds_screen.dart';
 import 'screens/main_app/home/home_screen.dart';
 import 'screens/main_app/main_app.dart';
 import 'screens/main_app/notifications/notifications_screen.dart';
+import 'screens/main_app/product_detail/product_detail_screen.dart';
 import 'screens/main_app/products/products_screen.dart';
 import 'screens/main_app/profile/profile_screen.dart';
 import 'screens/main_app/promotion/promotion_screen.dart';
@@ -37,6 +39,9 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => const NotificationsScreen());
       case EditProfileScreen.routeName:
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+      case ProductDetailScreen.routeName:
+        Product product = settings.arguments as Product;
+        return MaterialPageRoute(builder: (_) => ProductDetailScreen(product: product));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
