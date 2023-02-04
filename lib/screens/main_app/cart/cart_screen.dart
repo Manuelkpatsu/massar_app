@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/cart.dart';
+import 'package:massar_app/screens/main_app/checkout/checkout_screen.dart';
 import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
 import 'package:massar_app/screens/widgets/custom_button.dart';
 import 'package:massar_app/theme/custom_color.dart';
 
-import 'widgets/amount_text.dart';
+import '../../widgets/amount_text.dart';
 import 'widgets/cart_tile.dart';
-import 'widgets/total_payment_text.dart';
+import '../../widgets/total_payment_text.dart';
 
 class CartScreen extends StatefulWidget {
   static const routeName = '/cart';
@@ -169,7 +170,18 @@ class _CartScreenState extends State<CartScreen> {
               ),
               CustomButton(
                 width: 180,
-                onPressed: _selectedCartItems.isEmpty ? null : () {},
+                onPressed: _selectedCartItems.isEmpty
+                    ? null
+                    : () {
+                        Navigator.of(context).pushNamed(
+                          CheckoutScreen.routeName,
+                          arguments: _cartListItems
+                              .toSet()
+                              .where(
+                                  (item) => _selectedCartItems.toSet().contains(item.id))
+                              .toList(),
+                        );
+                      },
                 widget: Text(
                   _selectedCartItems.isEmpty
                       ? 'Buy'
