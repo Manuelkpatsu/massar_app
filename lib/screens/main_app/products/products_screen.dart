@@ -3,6 +3,7 @@ import 'package:massar_app/models/product.dart';
 import 'package:massar_app/models/review.dart';
 import 'package:massar_app/screens/main_app/cart/cart_screen.dart';
 import 'package:massar_app/screens/main_app/messages/messages_screen.dart';
+import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/product_detail/product_detail_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/main_app/widgets/search_text_field.dart';
@@ -576,7 +577,8 @@ class _ProductsScreenState extends State<ProductsScreen> {
               CustomBadge(
                 icon: Icons.notifications_none_rounded,
                 text: '0',
-                onTap: () {},
+                onTap: () =>
+                    Navigator.of(context).pushNamed(NotificationsScreen.routeName),
               ),
               CustomBadge(
                 icon: Icons.shopping_cart_outlined,
