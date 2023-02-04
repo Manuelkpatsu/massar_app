@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/product.dart';
 import 'package:massar_app/models/review.dart';
+import 'package:massar_app/screens/main_app/cart/cart_screen.dart';
 import 'package:massar_app/screens/main_app/product_detail/product_detail_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/main_app/widgets/search_text_field.dart';
@@ -579,7 +580,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
               CustomBadge(
                 icon: Icons.shopping_cart_outlined,
                 text: '0',
-                onTap: () {},
+                onTap: () => Navigator.of(context).pushNamed(CartScreen.routeName),
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(

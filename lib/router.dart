@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'models/product.dart';
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
+import 'screens/main_app/cart/cart_screen.dart';
 import 'screens/main_app/edit_profile/edit_profile_screen.dart';
 import 'screens/main_app/feeds/feeds_screen.dart';
 import 'screens/main_app/home/home_screen.dart';
@@ -42,6 +43,8 @@ class AppRouter {
       case ProductDetailScreen.routeName:
         Product product = settings.arguments as Product;
         return MaterialPageRoute(builder: (_) => ProductDetailScreen(product: product));
+      case CartScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const CartScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

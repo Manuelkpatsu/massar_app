@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/product.dart';
+import 'package:massar_app/screens/main_app/cart/cart_screen.dart';
 import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
 import 'package:massar_app/screens/widgets/custom_button.dart';
@@ -12,7 +13,7 @@ import 'widgets/product_detail_tab.dart';
 import 'widgets/product_detail_thumbnail.dart';
 import 'widgets/product_name_text.dart';
 import 'widgets/product_price_text.dart';
-import 'widgets/product_quantity_text.dart';
+import '../../widgets/product_quantity_text.dart';
 import 'widgets/product_store_rating.dart';
 import 'widgets/reviews.dart';
 
@@ -62,7 +63,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                   CustomBadge(
                     icon: Icons.shopping_cart_outlined,
                     text: '0',
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).pushNamed(CartScreen.routeName),
                   ),
                 ],
               ),
@@ -168,8 +169,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                         borderRadius: BorderRadius.circular(10),
                       ),
                       shapeBorder: RoundedRectangleBorder(
-                        side: const BorderSide(
-                            color: CustomColor.greyColor, width: 0.5),
+                        side: const BorderSide(color: CustomColor.greyColor, width: 0.5),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
@@ -183,8 +183,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                         borderRadius: BorderRadius.circular(10),
                       ),
                       shapeBorder: RoundedRectangleBorder(
-                        side: const BorderSide(
-                            color: CustomColor.greyColor, width: 0.5),
+                        side: const BorderSide(color: CustomColor.greyColor, width: 0.5),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
@@ -192,7 +191,9 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                 ),
                 CustomButton(
                   width: 180,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(CartScreen.routeName);
+                  },
                   widget: const Text('Add to cart'),
                 ),
               ],
