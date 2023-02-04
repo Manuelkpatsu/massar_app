@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/cart.dart';
+import 'package:massar_app/screens/main_app/messages/messages_screen.dart';
 import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/widgets/amount_text.dart';
@@ -41,7 +42,7 @@ class CheckoutScreen extends StatelessWidget {
           CustomBadge(
             icon: Icons.markunread_outlined,
             text: '0',
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(MessagesScreen.routeName),
           ),
           CustomBadge(
             icon: Icons.notifications_none_rounded,
@@ -109,7 +110,7 @@ class CheckoutScreen extends StatelessWidget {
               children: [
                 SummaryOrderTile(
                   title: 'Delivery Fee',
-                  amount: Money.fromDouble(value: 400.00),
+                  amount: Money.fromDouble(value: deliveryFee),
                 ),
                 const Divider(height: 0, color: CustomColor.dividerColor),
                 SummaryOrderTile(
@@ -119,7 +120,7 @@ class CheckoutScreen extends StatelessWidget {
                 const Divider(height: 0, color: CustomColor.dividerColor),
                 SummaryOrderTile(
                   title: 'Tax',
-                  amount: Money.fromDouble(value: 10.00),
+                  amount: Money.fromDouble(value: tax),
                 ),
               ],
             ),

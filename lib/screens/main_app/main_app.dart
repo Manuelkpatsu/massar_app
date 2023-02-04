@@ -9,6 +9,7 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'feeds/feeds_screen.dart';
 import 'home/home_screen.dart';
+import 'messages/messages_screen.dart';
 import 'notifications/notifications_screen.dart';
 import 'products/products_screen.dart';
 import 'profile/profile_screen.dart';
@@ -99,7 +100,7 @@ class _MainAppState extends State<MainApp> {
           CustomBadge(
             icon: Icons.markunread_outlined,
             text: '0',
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(MessagesScreen.routeName),
           ),
           CustomBadge(
             icon: Icons.notifications_none_rounded,

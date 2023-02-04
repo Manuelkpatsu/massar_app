@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/cart.dart';
 import 'package:massar_app/screens/main_app/checkout/checkout_screen.dart';
+import 'package:massar_app/screens/main_app/messages/messages_screen.dart';
 import 'package:massar_app/screens/main_app/notifications/notifications_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
@@ -76,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
           CustomBadge(
             icon: Icons.markunread_outlined,
             text: '0',
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(MessagesScreen.routeName),
           ),
           CustomBadge(
             icon: Icons.notifications_none_rounded,
