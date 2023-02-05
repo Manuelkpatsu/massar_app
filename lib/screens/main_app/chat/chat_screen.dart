@@ -127,8 +127,6 @@ class _ChatScreenState extends State<ChatScreen> {
               onSendPressed: _handleSendPressed,
               user: _user,
               theme: DefaultChatTheme(
-                attachmentButtonMargin: EdgeInsets.zero,
-                sendButtonMargin: EdgeInsets.zero,
                 inputBackgroundColor: Colors.white,
                 inputBorderRadius: BorderRadius.circular(100),
                 inputMargin: const EdgeInsets.only(left: 24, right: 24, bottom: 30),
