@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/message.dart';
 import 'package:massar_app/models/product.dart';
+import 'package:massar_app/screens/main_app/chat/chat_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/screen_title.dart';
 import 'package:massar_app/theme/custom_color.dart';
 
@@ -13,22 +14,22 @@ class MessagesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Message> messages = [
-      Message(
+    List<ChatMessage> messages = [
+      ChatMessage(
         id: 1,
         store: Store.appleStore,
         numberOfMessages: 5,
         lastMessageDate: DateTime(2023, 2, 4, 22, 48, 20),
         currentMessage: 'This product is still available and are you still interested?',
       ),
-      Message(
+      ChatMessage(
         id: 2,
         store: Store.amazonStore,
         numberOfMessages: 0,
         lastMessageDate: DateTime(2023, 2, 4, 12, 30, 00),
         currentMessage: 'I will be getting new stock next week.',
       ),
-      Message(
+      ChatMessage(
         id: 3,
         store: Store.gucciStore,
         numberOfMessages: 5,
@@ -36,14 +37,14 @@ class MessagesScreen extends StatelessWidget {
         currentMessage:
             'I have received your order. Please let me know when you will be available so it can be shipped.',
       ),
-      Message(
+      ChatMessage(
         id: 4,
         store: Store.samsungStore,
         numberOfMessages: 0,
         lastMessageDate: DateTime(2023, 2, 3, 10, 30, 10),
         currentMessage: 'This product is still available and are you still interested?',
       ),
-      Message(
+      ChatMessage(
         id: 5,
         store: Store.uniqloStore,
         numberOfMessages: 3,
@@ -51,28 +52,28 @@ class MessagesScreen extends StatelessWidget {
         currentMessage:
             'We are currently running promotions on almost all our products. Please take advantage of that',
       ),
-      Message(
+      ChatMessage(
         id: 6,
         store: Store.nikeStore,
         numberOfMessages: 0,
         lastMessageDate: DateTime(2023, 1, 28, 10, 30, 40),
         currentMessage: 'We are off on Sundays. Kindly take note.',
       ),
-      Message(
+      ChatMessage(
         id: 7,
         store: Store.xiaomiStore,
         numberOfMessages: 0,
         lastMessageDate: DateTime(2023, 1, 18, 8, 50, 20),
         currentMessage: 'We are off on Sundays. Kindly take note.',
       ),
-      Message(
+      ChatMessage(
         id: 8,
         store: Store.diorStore,
         numberOfMessages: 0,
         lastMessageDate: DateTime(2023, 1, 15, 15, 30, 10),
         currentMessage: 'This product is still available and are you still interested?',
       ),
-      Message(
+      ChatMessage(
         id: 9,
         store: Store.filaStore,
         numberOfMessages: 0,
@@ -101,11 +102,14 @@ class MessagesScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (ctx, index) {
-          final Message message = messages[index];
+          final ChatMessage message = messages[index];
 
           return MessageTile(
             message: message,
-            onTap: () {},
+            onTap: () => Navigator.of(context).pushNamed(
+              ChatScreen.routeName,
+              arguments: message,
+            ),
           );
         },
         separatorBuilder: (context, index) => const Divider(

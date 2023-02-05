@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'models/cart.dart';
+import 'models/message.dart';
 import 'models/product.dart';
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
 import 'screens/main_app/cart/cart_screen.dart';
+import 'screens/main_app/chat/chat_screen.dart';
 import 'screens/main_app/checkout/checkout_screen.dart';
 import 'screens/main_app/edit_profile/edit_profile_screen.dart';
 import 'screens/main_app/feeds/feeds_screen.dart';
@@ -55,6 +57,11 @@ class AppRouter {
         );
       case MessagesScreen.routeName:
         return MaterialPageRoute(builder: (_) => const MessagesScreen());
+      case ChatScreen.routeName:
+        ChatMessage chatMessage = settings.arguments as ChatMessage;
+        return MaterialPageRoute(
+          builder: (_) => ChatScreen(chatMessage: chatMessage),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

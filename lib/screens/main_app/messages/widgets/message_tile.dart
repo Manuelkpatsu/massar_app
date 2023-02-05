@@ -4,7 +4,7 @@ import 'package:massar_app/theme/custom_color.dart';
 import 'package:massar_app/utils/date_formatter.dart';
 
 class MessageTile extends StatelessWidget {
-  final Message message;
+  final ChatMessage message;
   final VoidCallback? onTap;
 
   const MessageTile({

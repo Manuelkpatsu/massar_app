@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:massar_app/models/product.dart';
 
-class Message extends Equatable {
+class ChatMessage extends Equatable {
   final int id;
   final Store store;
   final int numberOfMessages;
   final DateTime lastMessageDate;
   final String currentMessage;
 
-  const Message({
+  const ChatMessage({
     required this.id,
     required this.store,
     required this.numberOfMessages,
