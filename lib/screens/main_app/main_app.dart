@@ -20,7 +20,7 @@ import 'widgets/nav_tile.dart';
 import 'widgets/screen_title.dart';
 
 class MainApp extends StatefulWidget {
-  static const routeName = '/main_app';
+  static const routeName = '/main';
 
   const MainApp({Key? key}) : super(key: key);
 

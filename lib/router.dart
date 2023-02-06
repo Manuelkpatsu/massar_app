@@ -19,6 +19,7 @@ import 'screens/main_app/product_detail/product_detail_screen.dart';
 import 'screens/main_app/products/products_screen.dart';
 import 'screens/main_app/profile/profile_screen.dart';
 import 'screens/main_app/promotion/promotion_screen.dart';
+import 'screens/main_app/select_payment/select_payment_screen.dart';
 import 'screens/main_app/transaction/transaction_screen.dart';
 import 'screens/main_app/transaction_detail/transaction_detail_screen.dart';
 
@@ -69,6 +70,9 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => TransactionDetailScreen(transaction: transaction),
         );
+      case SelectPaymentScreen.routeName:
+        double amount = settings.arguments as double;
+        return MaterialPageRoute(builder: (_) => SelectPaymentScreen(amount: amount));
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
