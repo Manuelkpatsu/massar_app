@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/models/order_info.dart';
 import 'package:massar_app/models/transaction.dart';
 import 'package:massar_app/screens/main_app/transaction_detail/transaction_detail_screen.dart';
 import 'package:massar_app/theme/custom_color.dart';
@@ -20,6 +21,31 @@ class Success extends StatelessWidget {
         backgroundColor: CustomColor.productColorFour,
         status: Status.success,
         createdAt: DateTime(2023, 1, 4),
+        processes: [
+          OrderInfo(
+              id: 1,
+              date: DateTime(2023, 1, 26, 10, 30, 20),
+              deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+              isCompleted: true),
+          OrderInfo(
+            id: 2,
+            date: DateTime(2023, 1, 26, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+          OrderInfo(
+            id: 3,
+            date: DateTime(2023, 1, 27, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+          OrderInfo(
+            id: 4,
+            date: DateTime(2023, 1, 28, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+        ],
       ),
       Transaction(
         id: 5,
@@ -29,6 +55,31 @@ class Success extends StatelessWidget {
         backgroundColor: CustomColor.productColorNine,
         status: Status.success,
         createdAt: DateTime(2023, 1, 4),
+        processes: [
+          OrderInfo(
+              id: 1,
+              date: DateTime(2023, 1, 26, 10, 30, 20),
+              deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+              isCompleted: true),
+          OrderInfo(
+            id: 2,
+            date: DateTime(2023, 1, 26, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+          OrderInfo(
+            id: 3,
+            date: DateTime(2023, 1, 27, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+          OrderInfo(
+            id: 4,
+            date: DateTime(2023, 1, 28, 10, 30, 20),
+            deliveryMessage: 'Packages out of Bandung [Bandung Sortation]',
+            isCompleted: false,
+          ),
+        ],
       ),
     ];
 

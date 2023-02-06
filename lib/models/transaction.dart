@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart' show Color;
 
+import 'order_info.dart';
+
 enum Status {
   shipping(id: 'Shipping'),
   notPaid(id: 'Not Paid'),
@@ -19,6 +21,7 @@ class Transaction extends Equatable {
   final Color backgroundColor;
   final Status status;
   final DateTime createdAt;
+  final List<OrderInfo> processes;
 
   const Transaction({
     required this.id,
@@ -28,6 +31,7 @@ class Transaction extends Equatable {
     required this.backgroundColor,
     required this.status,
     required this.createdAt,
+    required this.processes,
   });
 
   @override
@@ -39,5 +43,6 @@ class Transaction extends Equatable {
     backgroundColor,
     status,
     createdAt,
+    processes,
   ];
 }

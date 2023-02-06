@@ -20,6 +20,7 @@ class NotPaid extends StatelessWidget {
         backgroundColor: CustomColor.productColorTwo,
         status: Status.notPaid,
         createdAt: DateTime(2023, 1, 4),
+        processes: const [],
       ),
     ];
 
