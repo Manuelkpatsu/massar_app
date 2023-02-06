@@ -41,4 +41,5 @@ class CustomColor {
   static const Color productColor = Color(0xfffffdfd);
   static const Color periodColor = Color(0xff909da1);
   static const Color radioColor = Color(0xffcdd8e2);
+  static const Color barrierColor = Color(0xff1c4359);
 }

@@ -39,7 +39,7 @@ class NotPaid extends StatelessWidget {
               pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
           },
-          onLongPress: () {},
+          onLongPress: null,
           transaction: transaction,
         );
       },

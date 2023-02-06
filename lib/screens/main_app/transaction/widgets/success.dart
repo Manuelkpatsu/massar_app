@@ -3,6 +3,7 @@ import 'package:massar_app/models/order_info.dart';
 import 'package:massar_app/models/transaction.dart';
 import 'package:massar_app/screens/main_app/transaction_detail/transaction_detail_screen.dart';
 import 'package:massar_app/theme/custom_color.dart';
+import 'package:massar_app/utils/helper.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'transaction_tile.dart';
@@ -98,7 +99,12 @@ class Success extends StatelessWidget {
               pageTransitionAnimation: PageTransitionAnimation.cupertino,
             );
           },
-          onLongPress: () {},
+          onLongPress: () {
+            Helper.openTransactionModalBottomSheet(
+              context: context,
+              processes: transaction.processes,
+            );
+          },
           transaction: transaction,
         );
       },

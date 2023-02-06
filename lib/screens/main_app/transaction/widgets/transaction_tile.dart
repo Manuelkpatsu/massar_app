@@ -7,8 +7,8 @@ import 'package:massar_app/screens/main_app/widgets/transaction_product_thumbnai
 import 'package:massar_app/screens/main_app/widgets/transaction_status.dart';
 
 class TransactionTile extends StatelessWidget {
-  final VoidCallback onTap;
-  final VoidCallback onLongPress;
+  final VoidCallback? onTap;
+  final VoidCallback? onLongPress;
   final Transaction transaction;
 
   const TransactionTile({
