@@ -100,7 +100,7 @@ class CartTile extends StatelessWidget {
                         Row(
                           children: [
                             RoundedIconButton(
-                              icon: Icons.add,
+                              icon: Icons.remove,
                               onTap: () {},
                               inkWellShapeBorder: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
@@ -117,7 +117,7 @@ class CartTile extends StatelessWidget {
                             ProductQuantityText(quantity: cart.quantity),
                             const SizedBox(width: 13),
                             RoundedIconButton(
-                              icon: Icons.remove,
+                              icon: Icons.add,
                               onTap: () {},
                               inkWellShapeBorder: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
