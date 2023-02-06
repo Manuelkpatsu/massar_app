@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'models/cart.dart';
 import 'models/message.dart';
 import 'models/product.dart';
+import 'models/transaction.dart';
 import 'screens/auth/login/login_screen.dart';
 import 'screens/auth/register/register_screen.dart';
 import 'screens/main_app/cart/cart_screen.dart';
@@ -19,6 +20,7 @@ import 'screens/main_app/products/products_screen.dart';
 import 'screens/main_app/profile/profile_screen.dart';
 import 'screens/main_app/promotion/promotion_screen.dart';
 import 'screens/main_app/transaction/transaction_screen.dart';
+import 'screens/main_app/transaction_detail/transaction_detail_screen.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -61,6 +63,11 @@ class AppRouter {
         ChatMessage chatMessage = settings.arguments as ChatMessage;
         return MaterialPageRoute(
           builder: (_) => ChatScreen(chatMessage: chatMessage),
+        );
+      case TransactionDetailScreen.routeName:
+        Transaction transaction = settings.arguments as Transaction;
+        return MaterialPageRoute(
+          builder: (_) => TransactionDetailScreen(transaction: transaction),
         );
       default:
         return MaterialPageRoute(

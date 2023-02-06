@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:massar_app/models/transaction.dart';
-import 'package:massar_app/theme/custom_color.dart';
-import 'package:massar_app/utils/money.dart';
+import 'package:massar_app/screens/main_app/widgets/transaction_date.dart';
+import 'package:massar_app/screens/main_app/widgets/transaction_price.dart';
+import 'package:massar_app/screens/main_app/widgets/transaction_product_name.dart';
+import 'package:massar_app/screens/main_app/widgets/transaction_product_thumbnail.dart';
+import 'package:massar_app/screens/main_app/widgets/transaction_status.dart';
 
 class TransactionTile extends StatelessWidget {
   final VoidCallback onTap;
@@ -18,37 +20,6 @@ class TransactionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color statusBackgroundColor() {
-      switch (transaction.status) {
-        case Status.shipping:
-          return CustomColor.greenColor;
-        case Status.notPaid:
-          return CustomColor.redColor;
-        case Status.success:
-          return CustomColor.greenColor.withOpacity(0.2);
-      }
-    }
-
-    Color statusTextColor() {
-      switch (transaction.status) {
-        case Status.shipping:
-        case Status.notPaid:
-          return Colors.white;
-        case Status.success:
-          return CustomColor.greenColor;
-      }
-    }
-
-    BorderRadius statusBorderRadius() {
-      switch (transaction.status) {
-        case Status.shipping:
-        case Status.notPaid:
-          return BorderRadius.circular(5);
-        case Status.success:
-          return BorderRadius.circular(55);
-      }
-    }
-
     return Padding(
       padding: const EdgeInsets.only(bottom: 13),
       child: InkWell(
@@ -63,23 +34,13 @@ class TransactionTile extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Ink(
+              TransactionProductThumbnail(
                 width: 60,
                 height: 60,
                 padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                decoration: BoxDecoration(
-                  color: transaction.backgroundColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Hero(
-                    tag: 'Transaction-${transaction.id}',
-                    child: Image.asset(
-                      transaction.image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                image: transaction.image,
+                id: transaction.id,
+                backgroundColor: transaction.backgroundColor,
               ),
               const SizedBox(width: 12),
               Expanded(
@@ -89,40 +50,9 @@ class TransactionTile extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Expanded(
-                          child: Text(
-                            transaction.name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
+                        TransactionProductName(name: transaction.name),
                         const SizedBox(height: 10),
-                        Ink(
-                          height: 22,
-                          width: 63,
-                          padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: statusBackgroundColor(),
-                            borderRadius: statusBorderRadius(),
-                          ),
-                          child: Center(
-                            child: Text(
-                              transaction.status.id,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.w400,
-                                height: 1.5,
-                                color: statusTextColor(),
-                              ),
-                            ),
-                          ),
-                        ),
+                        TransactionStatus(status: transaction.status),
                       ],
                     ),
                     const SizedBox(height: 13),
@@ -130,23 +60,8 @@ class TransactionTile extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          Money.fromDouble(value: transaction.price),
-                          style: const TextStyle(
-                            color: CustomColor.greenBorderColor,
-                            fontSize: 13,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          DateFormat.yMMMMd().format(transaction.createdAt),
-                          style: const TextStyle(
-                            color: CustomColor.labelColor,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w400,
-                            height: 1.5,
-                          ),
-                        ),
+                        TransactionPrice(price: transaction.price),
+                        TransactionDate(date: transaction.createdAt),
                       ],
                     ),
                   ],

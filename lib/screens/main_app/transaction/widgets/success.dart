@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:massar_app/models/transaction.dart';
+import 'package:massar_app/screens/main_app/transaction_detail/transaction_detail_screen.dart';
 import 'package:massar_app/theme/custom_color.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'transaction_tile.dart';
 
@@ -37,7 +39,14 @@ class Success extends StatelessWidget {
         final Transaction transaction = transactions[index];
 
         return TransactionTile(
-          onTap: () {},
+          onTap: () {
+            PersistentNavBarNavigator.pushNewScreen(
+              context,
+              screen: TransactionDetailScreen(transaction: transaction),
+              withNavBar: false,
+              pageTransitionAnimation: PageTransitionAnimation.cupertino,
+            );
+          },
           onLongPress: () {},
           transaction: transaction,
         );
