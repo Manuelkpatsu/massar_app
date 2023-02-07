@@ -101,7 +101,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           _obscureRegisterConfirmPasswordText =
                           !_obscureRegisterConfirmPasswordText),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 50),
                         CustomButton(
                           onPressed: () {
                             Navigator.of(context).pushNamedAndRemoveUntil(
@@ -111,7 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           },
                           widget: const Text('Sign Up'),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 40),
                         HaveAccount(
                           onTap: () =>
                               Navigator.of(context).pushNamed(LoginScreen.routeName),
