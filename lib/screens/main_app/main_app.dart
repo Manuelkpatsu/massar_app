@@ -167,22 +167,22 @@ class _MainAppState extends State<MainApp> {
                 padding: EdgeInsets.zero,
                 children: [
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'Dashboard',
                     icon: Icons.home_filled,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'Become Seller',
                     icon: Icons.person_outline_rounded,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'Help',
                     icon: Icons.help_outline_rounded,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'Categories',
                     icon: Icons.grid_view_outlined,
                   ),
@@ -194,7 +194,7 @@ class _MainAppState extends State<MainApp> {
                     icon: Icons.shopping_bag_outlined,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'New Release',
                     icon: Icons.calendar_today_outlined,
                   ),
@@ -206,7 +206,7 @@ class _MainAppState extends State<MainApp> {
                     icon: Icons.campaign_outlined,
                   ),
                   NavTile(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).pop(),
                     title: 'Settings',
                     icon: Icons.settings_outlined,
                   ),
