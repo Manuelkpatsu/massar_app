@@ -41,8 +41,8 @@ class _LoginScreenState extends State<LoginScreen> {
       backgroundColor: CustomColor.primaryColor,
       body: SafeArea(
         bottom: false,
-        child: Stack(
-          fit: StackFit.expand,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -51,78 +51,73 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: const [WelcomeText(), LoginInfoText()],
               ),
             ),
-            DraggableScrollableSheet(
-              initialChildSize: 0.75,
-              minChildSize: 0.75,
-              maxChildSize: 0.87,
-              builder: (BuildContext context, scrollController) {
-                return Ink(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(20),
+            const SizedBox(height: 70),
+            Expanded(
+              child: Ink(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(20),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Form(
+                    key: _loginFormKey,
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 24),
+                        TextInputField(
+                          controller: _emailController,
+                          labelText: 'Your Email Address',
+                          inputType: TextInputType.emailAddress,
+                          inputAction: TextInputAction.next,
+                        ),
+                        const SizedBox(height: 20),
+                        PasswordInputField(
+                          controller: _passwordController,
+                          labelText: 'Password',
+                          inputAction: TextInputAction.done,
+                          obscureText: _obscureLoginPasswordText,
+                          toggle: () => setState(() =>
+                          _obscureLoginPasswordText = !_obscureLoginPasswordText),
+                        ),
+                        const SizedBox(height: 40),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            RememberMe(
+                              isChecked: _isChecked,
+                              onChanged: (value) {
+                                setState(() {
+                                  _isChecked = value!;
+                                });
+                              },
+                            ),
+                            ForgotPasswordButton(onTap: () {}),
+                          ],
+                        ),
+                        const SizedBox(height: 50),
+                        CustomButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              MainApp.routeName,
+                                  (route) => false,
+                            );
+                          },
+                          widget: const Text('Sign In'),
+                        ),
+                        const SizedBox(height: 40),
+                        CreateNewAccount(
+                          onTap: () =>
+                              Navigator.of(context).pushNamed(RegisterScreen.routeName),
+                        ),
+                        const SizedBox(height: 20),
+                      ],
                     ),
                   ),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-                    controller: scrollController,
-                    child: Form(
-                      key: _loginFormKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextInputField(
-                            controller: _emailController,
-                            labelText: 'Your Email Address',
-                            inputType: TextInputType.emailAddress,
-                            inputAction: TextInputAction.next,
-                          ),
-                          const SizedBox(height: 20),
-                          PasswordInputField(
-                            controller: _passwordController,
-                            labelText: 'Password',
-                            inputAction: TextInputAction.done,
-                            obscureText: _obscureLoginPasswordText,
-                            toggle: () => setState(() =>
-                                _obscureLoginPasswordText = !_obscureLoginPasswordText),
-                          ),
-                          const SizedBox(height: 40),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              RememberMe(
-                                isChecked: _isChecked,
-                                onChanged: (value) {
-                                  setState(() {
-                                    _isChecked = value!;
-                                  });
-                                },
-                              ),
-                              ForgotPasswordButton(onTap: () {}),
-                            ],
-                          ),
-                          const SizedBox(height: 40),
-                          CustomButton(
-                            onPressed: () {
-                              Navigator.of(context).pushNamedAndRemoveUntil(
-                                MainApp.routeName,
-                                (route) => false,
-                              );
-                            },
-                            widget: const Text('Sign In'),
-                          ),
-                          const SizedBox(height: 30),
-                          CreateNewAccount(
-                            onTap: () =>
-                                Navigator.of(context).pushNamed(RegisterScreen.routeName),
-                          ),
-                          const SizedBox(height: 20),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
+                ),
+              ),
             ),
           ],
         ),

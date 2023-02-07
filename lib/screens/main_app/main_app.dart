@@ -224,7 +224,7 @@ class _MainAppState extends State<MainApp> {
                 icon: Icons.logout,
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
           ],
         ),
       ),

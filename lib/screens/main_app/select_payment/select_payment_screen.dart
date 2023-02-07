@@ -78,9 +78,9 @@ class _SelectPaymentScreenState extends State<SelectPaymentScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             const SelectCardsText(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: _payments.map((payment) {

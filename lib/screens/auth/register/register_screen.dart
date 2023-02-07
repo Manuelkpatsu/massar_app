@@ -35,8 +35,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       backgroundColor: CustomColor.primaryColor,
       body: SafeArea(
         bottom: false,
-        child: Stack(
-          fit: StackFit.expand,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -45,88 +45,83 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 children: const [RegisterText(), RegisterInfoText()],
               ),
             ),
-            DraggableScrollableSheet(
-              initialChildSize: 0.87,
-              minChildSize: 0.87,
-              maxChildSize: 0.87,
-              builder: (BuildContext context, scrollController) {
-                return Ink(
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(20),
+            const SizedBox(height: 40),
+            Expanded(
+              child: Ink(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(20),
+                  ),
+                ),
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Form(
+                    key: _registerFormKey,
+                    child: Column(
+                      children: [
+                        const SizedBox(height: 24),
+                        TextInputField(
+                          controller: _fullNameController,
+                          labelText: 'Full Name',
+                          inputType: TextInputType.name,
+                          inputAction: TextInputAction.next,
+                          textCapitalization: TextCapitalization.words,
+                        ),
+                        const SizedBox(height: 20),
+                        TextInputField(
+                          controller: _emailController,
+                          labelText: 'Email Address',
+                          inputType: TextInputType.emailAddress,
+                          inputAction: TextInputAction.next,
+                        ),
+                        const SizedBox(height: 20),
+                        TextInputField(
+                          controller: _phoneNumberController,
+                          labelText: 'Phone Number',
+                          inputType: TextInputType.phone,
+                          inputAction: TextInputAction.next,
+                        ),
+                        const SizedBox(height: 20),
+                        PasswordInputField(
+                          controller: _passwordController,
+                          labelText: 'Password',
+                          inputAction: TextInputAction.next,
+                          obscureText: _obscureRegisterPasswordText,
+                          toggle: () => setState(() => _obscureRegisterPasswordText =
+                          !_obscureRegisterPasswordText),
+                        ),
+                        const SizedBox(height: 20),
+                        PasswordInputField(
+                          controller: _confirmPasswordController,
+                          labelText: 'Confirm Password',
+                          inputAction: TextInputAction.done,
+                          obscureText: _obscureRegisterConfirmPasswordText,
+                          toggle: () => setState(() =>
+                          _obscureRegisterConfirmPasswordText =
+                          !_obscureRegisterConfirmPasswordText),
+                        ),
+                        const SizedBox(height: 40),
+                        CustomButton(
+                          onPressed: () {
+                            Navigator.of(context).pushNamedAndRemoveUntil(
+                              MainApp.routeName,
+                                  (route) => false,
+                            );
+                          },
+                          widget: const Text('Sign Up'),
+                        ),
+                        const SizedBox(height: 30),
+                        HaveAccount(
+                          onTap: () =>
+                              Navigator.of(context).pushNamed(LoginScreen.routeName),
+                        ),
+                        const SizedBox(height: 30),
+                      ],
                     ),
                   ),
-                  child: SingleChildScrollView(
-                    padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-                    controller: scrollController,
-                    child: Form(
-                      key: _registerFormKey,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          TextInputField(
-                            controller: _fullNameController,
-                            labelText: 'Full Name',
-                            inputType: TextInputType.name,
-                            inputAction: TextInputAction.next,
-                            textCapitalization: TextCapitalization.words,
-                          ),
-                          const SizedBox(height: 20),
-                          TextInputField(
-                            controller: _emailController,
-                            labelText: 'Email Address',
-                            inputType: TextInputType.emailAddress,
-                            inputAction: TextInputAction.next,
-                          ),
-                          const SizedBox(height: 20),
-                          TextInputField(
-                            controller: _phoneNumberController,
-                            labelText: 'Phone Number',
-                            inputType: TextInputType.phone,
-                            inputAction: TextInputAction.next,
-                          ),
-                          const SizedBox(height: 20),
-                          PasswordInputField(
-                            controller: _passwordController,
-                            labelText: 'Password',
-                            inputAction: TextInputAction.next,
-                            obscureText: _obscureRegisterPasswordText,
-                            toggle: () => setState(() => _obscureRegisterPasswordText =
-                                !_obscureRegisterPasswordText),
-                          ),
-                          const SizedBox(height: 20),
-                          PasswordInputField(
-                            controller: _confirmPasswordController,
-                            labelText: 'Confirm Password',
-                            inputAction: TextInputAction.done,
-                            obscureText: _obscureRegisterConfirmPasswordText,
-                            toggle: () => setState(() =>
-                                _obscureRegisterConfirmPasswordText =
-                                    !_obscureRegisterConfirmPasswordText),
-                          ),
-                          const SizedBox(height: 40),
-                          CustomButton(
-                            onPressed: () {
-                              Navigator.of(context).pushNamedAndRemoveUntil(
-                                MainApp.routeName,
-                                (route) => false,
-                              );
-                            },
-                            widget: const Text('Sign Up'),
-                          ),
-                          const SizedBox(height: 30),
-                          HaveAccount(
-                            onTap: () =>
-                                Navigator.of(context).pushNamed(LoginScreen.routeName),
-                          ),
-                          const SizedBox(height: 30),
-                        ],
-                      ),
-                    ),
-                  ),
-                );
-              },
+                ),
+              ),
             ),
           ],
         ),

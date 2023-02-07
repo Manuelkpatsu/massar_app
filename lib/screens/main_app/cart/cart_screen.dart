@@ -143,13 +143,13 @@ class _CartScreenState extends State<CartScreen> {
                 cart: cartItem,
               );
             }).toList(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 150),
           ],
         ),
       ),
       bottomSheet: IntrinsicHeight(
         child: Ink(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
           decoration: const BoxDecoration(
             color: Colors.white,
             border: Border(
