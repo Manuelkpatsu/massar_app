@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:massar_app/screens/auth/login/login_screen.dart';
 import 'package:massar_app/screens/main_app/cart/cart_screen.dart';
 import 'package:massar_app/screens/main_app/widgets/info_tile.dart';
 import 'package:massar_app/screens/widgets/custom_badge.dart';
@@ -215,7 +216,10 @@ class _MainAppState extends State<MainApp> {
             Align(
               alignment: Alignment.bottomCenter,
               child: NavTile(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  logout();
+                },
                 title: 'Logout',
                 icon: Icons.logout,
               ),
@@ -252,6 +256,57 @@ class _MainAppState extends State<MainApp> {
           setState(() => _initialIndex = index);
         },
       ),
+    );
+  }
+
+  void logout() {
+    showDialog(
+      context: context,
+      barrierColor: CustomColor.barrierColor.withOpacity(0.6),
+      builder: (ctx) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          backgroundColor: Colors.white,
+          title: const Text('Logout'),
+          content: const Text('Are you sure you want to logout?'),
+          titleTextStyle: const TextStyle(
+            color: Colors.black,
+            fontSize: 20,
+            fontWeight: FontWeight.w500,
+            height: 1.5,
+          ),
+          contentTextStyle: const TextStyle(
+            color: CustomColor.descriptionColor,
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+            height: 1.75,
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(ctx).pop(),
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                foregroundColor: CustomColor.greenColor,
+              ),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.of(ctx).pop();
+                Navigator.of(ctx).pushNamedAndRemoveUntil(
+                  LoginScreen.routeName,
+                  (route) => false,
+                );
+              },
+              style: TextButton.styleFrom(
+                textStyle: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                foregroundColor: CustomColor.redBackgroundColor,
+              ),
+              child: const Text('Ok'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
