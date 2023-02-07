@@ -165,7 +165,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                 Row(
                   children: [
                     RoundedIconButton(
-                      icon: Icons.add,
+                      icon: Icons.remove,
                       onTap: () {},
                       inkWellShapeBorder: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -179,7 +179,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen>
                     const ProductQuantityText(quantity: 1),
                     const SizedBox(width: 13),
                     RoundedIconButton(
-                      icon: Icons.remove,
+                      icon: Icons.add,
                       onTap: () {},
                       inkWellShapeBorder: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
